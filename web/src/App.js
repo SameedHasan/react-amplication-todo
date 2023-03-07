@@ -40,17 +40,15 @@ function App() {
     setTasks(temp);
   };
 
-  const toggleCompleted = async (id) => {
-    const toggleCompleted = async (task) => {
-      const updatedTask = await tasksLib.update(task);
-      if (!updatedTask) return;
+  const toggleCompleted = async (task) => {
+    const updatedTask = await tasksLib.update(task);
+    if (!updatedTask) return;
 
-      let temp = [...tasks];
-      const i = temp.findIndex((t) => t.id === updatedTask.id);
+    let temp = [...tasks];
+    const i = temp.findIndex((t) => t.id === updatedTask.id);
 
-      temp[i] = updatedTask;
-      setTasks(temp);
-    };
+    temp[i] = updatedTask;
+    setTasks(temp);
   };
   return (
     <div>
